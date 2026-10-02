@@ -1,0 +1,15 @@
+{% if site.languages.size > 1 %}
+<div class="lang-switcher">
+  <span class="lang-label">{{ site.data.translations[page.lang].language | default: "Language" }}:</span>
+  {% if page.lang == "ru" %}{% assign twin = page.url | replace: ".ru/", ".en/" %}
+  {% else %}{% assign twin = page.url | replace: ".en/", ".ru/" %}{% endif %}
+  {% for lang in site.languages %}
+    {% if lang == page.lang %}
+      <span class="lang-current">{{ lang | upcase }}</span>
+    {% else %}
+      <a href="{{ twin | relative_url }}" class="lang-link">{{ lang | upcase }}</a>
+    {% endif %}
+    {% unless forloop.last %}<span class="lang-separator">|</span>{% endunless %}
+  {% endfor %}
+</div>
+{% endif %}

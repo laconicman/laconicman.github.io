@@ -1,0 +1,37 @@
+# Jekyll Configuration for GitHub Pages — user site (apex)
+title: "laconicman"
+description: "Apps, privacy and support pages"
+author: "laconicman"
+
+theme: minima
+baseurl: ""                          # user site — serves at the apex
+url: "https://laconicman.github.io"
+
+markdown: kramdown
+highlighter: rouge
+timezone: UTC
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - README.md
+
+minima:
+  skin: auto
+  date_format: "%b %-d, %Y"
+
+# Polyglot multilingual configuration — same shape as laconicman/articles.
+languages: ["ru", "en"]
+default_lang: "ru"
+exclude_from_localization: ["assets", "images", "LICENSE", "README.md"]
+parallel_localization: true
